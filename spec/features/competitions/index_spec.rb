@@ -6,7 +6,7 @@ RSpec.describe 'competition index' do
     @seattle = Competition.create!(name: "Pacific Northwest Soccer Championship", location: "Seattle, WA", sport: "soccer")
   end
 
-  scenario 'visitor sees names of all competitions as links' do
+  scenario 'user sees names of all competitions as links' do
     visit "/competitions"
     expect(page).to have_link "#{@denver.name}"
     expect(page).to have_link "#{@chicago.name}"
