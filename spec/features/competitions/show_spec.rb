@@ -38,11 +38,4 @@ RSpec.describe 'competition show page' do
     visit "/competitions/#{@denver.id}"
     expect(page).to have_link("Register a new team")
   end
-
-  # scenario 'user clicks link and is taken to a form to register new team' do
-  #   visit "/competitions/#{@denver.id}"
-  #   click_link "Register a new team"
-  #   expect(current_path).to eq("/competitions/#{@denver.id}/teams/new")
-  #   redirect_to "/competitions/#{@denver.id}"
-  # end
 end 
