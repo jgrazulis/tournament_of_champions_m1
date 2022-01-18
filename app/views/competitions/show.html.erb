@@ -2,3 +2,4 @@
 <h3><%= "#{@competition.location}" %></h3>
 <h3><%= "#{@competition.sport}" %></h3>
 <h3>Average Age of Players: <%= @team_competition_players.average(:age) %>
+<h3><%= link_to "Register a new team", "/competitions/#{@competition.id}/teams/new" %>
