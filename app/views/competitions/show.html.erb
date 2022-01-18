@@ -1,3 +1,4 @@
 <h1><%= "#{@competition.name}" %></h1>
 <h3><%= "#{@competition.location}" %></h3>
 <h3><%= "#{@competition.sport}" %></h3>
+<h3>Average Age of Players: <%= @team_competition_players.average(:age) %>
