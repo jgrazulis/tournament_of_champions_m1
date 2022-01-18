@@ -18,6 +18,15 @@ RSpec.describe 'new team form' do
     visit "/competitions/#{@denver.id}"
     click_link "Register a new team"
     expect(current_path).to eq("/competitions/#{@denver.id}/teams/new")
-    redirect_to "/competitions/#{@denver.id}"
+  end
+
+  scenario 'form has field for team nickname and hometown' do
+    visit "/competitions/#{@denver.id}/teams/new"
+    fill_in('nickname', with: 'Porters')
+    fill_in('hometown', with: 'Lockport, IL')
+    click_button('Submit')
+    expect(current_path).to eq("/competitions/#{@denver.id}")
+    expect(page).to have_content("Porters")
+    expect(page).to have_content("Lockport, IL")
   end
 end 
