@@ -1,5 +1,5 @@
 require 'rails_helper'
-RSpec.describe 'competition index' do
+RSpec.describe 'competition show page' do
   before(:each) do
     @denver = Competition.create!(name: "Mile High Soccer Championship", location: "Denver, CO", sport: "soccer")
     @rockies = @denver.teams.create!(nickname: "Little Rockies", hometown: "Denver, CO")
@@ -32,6 +32,17 @@ RSpec.describe 'competition index' do
   scenario 'user sees average age of all players in competition' do
     visit "/competitions/#{@denver.id}"
     expect(page).to have_content(@rapids.players.average(:age))
-    save_and_open_page
   end
+
+  scenario 'user sees link to register new team' do
+    visit "/competitions/#{@denver.id}"
+    expect(page).to have_link("Register a new team")
+  end
+
+  # scenario 'user clicks link and is taken to a form to register new team' do
+  #   visit "/competitions/#{@denver.id}"
+  #   click_link "Register a new team"
+  #   expect(current_path).to eq("/competitions/#{@denver.id}/teams/new")
+  #   redirect_to "/competitions/#{@denver.id}"
+  # end
 end 
